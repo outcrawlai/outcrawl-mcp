@@ -11,7 +11,7 @@
       "name": "outcrawl",
       "source": "./",
       "description": "Web infrastructure for AI agents. Scrape any URL to clean markdown or JSON, crawl a site, search the web with the results already read, drive real browsers in the cloud, and hand multi-step tasks to an agent.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Outcrawl",
         "email": "hi@outcrawl.ai",
