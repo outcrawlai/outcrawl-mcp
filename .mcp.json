@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "outcrawl": {
+      "type": "http",
+      "url": "https://api.outcrawl.ai/mcp"
+    }
+  }
+}

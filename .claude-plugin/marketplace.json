@@ -1,0 +1,36 @@
+{
+  "name": "outcrawl",
+  "owner": {
+    "name": "Outcrawl",
+    "email": "hi@outcrawl.ai",
+    "url": "https://outcrawl.ai"
+  },
+  "description": "Outcrawl's plugins for Claude Code: web data, search, browsers and agents for your agent.",
+  "plugins": [
+    {
+      "name": "outcrawl",
+      "source": "./",
+      "description": "Web infrastructure for AI agents. Scrape any URL to clean markdown or JSON, crawl a site, search the web with the results already read, drive real browsers in the cloud, and hand multi-step tasks to an agent.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Outcrawl",
+        "email": "hi@outcrawl.ai",
+        "url": "https://outcrawl.ai"
+      },
+      "homepage": "https://outcrawl.ai/docs/mcp/setup",
+      "repository": "https://github.com/outcrawlai/outcrawl-mcp",
+      "license": "MIT",
+      "keywords": [
+        "web-scraping",
+        "crawling",
+        "web-search",
+        "browser",
+        "browser-automation",
+        "mcp",
+        "ai-agents",
+        "outcrawl"
+      ],
+      "category": "development"
+    }
+  ]
+}

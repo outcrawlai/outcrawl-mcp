@@ -1,0 +1,11 @@
+{
+  "name": "outcrawl",
+  "version": "1.0.0",
+  "description": "Web infrastructure for AI agents. Scrape any URL to clean markdown or JSON, crawl a site, search the web with the results already read, drive real browsers in the cloud, and hand multi-step tasks to an agent.",
+  "mcpServers": {
+    "outcrawl": {
+      "httpUrl": "https://api.outcrawl.ai/mcp"
+    }
+  },
+  "contextFileName": "skills/outcrawl/SKILL.md"
+}

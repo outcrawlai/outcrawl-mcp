@@ -1,0 +1,27 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.outcrawlai/outcrawl",
+  "title": "Outcrawl",
+  "description": "Web infrastructure for AI agents: scrape, crawl and search the web, run browsers and agents.",
+  "version": "1.0.0",
+  "websiteUrl": "https://outcrawl.ai/docs/mcp/setup?utm_source=mcp_registry&utm_medium=directory&utm_campaign=mcp",
+  "repository": {
+    "url": "https://github.com/outcrawlai/outcrawl-mcp",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://api.outcrawl.ai/brand/icon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.outcrawl.ai/mcp"
+    }
+  ]
+}

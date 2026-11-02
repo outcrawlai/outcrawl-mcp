@@ -1,0 +1,114 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "outcrawl",
+  "version": "1.0.0",
+  "description": "Web infrastructure for AI agents. Scrape any URL to clean markdown or JSON, crawl a site, search the web with the results already read, drive real browsers in the cloud, and hand multi-step tasks to an agent.",
+  "author": {
+    "name": "Outcrawl",
+    "email": "hi@outcrawl.ai",
+    "url": "https://outcrawl.ai"
+  },
+  "homepage": "https://outcrawl.ai/docs/mcp/setup",
+  "repository": "https://github.com/outcrawlai/outcrawl-mcp",
+  "license": "MIT",
+  "keywords": [
+    "web-scraping",
+    "crawling",
+    "web-search",
+    "browser",
+    "browser-automation",
+    "mcp",
+    "ai-agents",
+    "outcrawl"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Outcrawl",
+        "shortDescription": "The web for your agent",
+        "longDescription": "Outcrawl is web infrastructure for AI agents. Connect it and ask in plain words: read any page as clean markdown or JSON, crawl a whole site, search the web with the results already read, watch a page for changes, and hand a multi-step task (a login, a form, a flow across pages) to an agent that works in a real browser and reports what it found.\n\nYou sign in through your browser and pick one workspace. Everything runs on that workspace's credit balance, every result reports what it cost, and every browser session is recorded for replay.\n\nLimits: browser settings are assigned by Outcrawl and are not configurable; an agent run costs far more than a scrape for the same text, so the plugin reads a page directly whenever it can.",
+        "developerName": "Outcrawl",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Scrape a page to markdown or JSON",
+          "Crawl a site",
+          "Search the web with full page content",
+          "Run browser agents on multi-step tasks",
+          "Watch pages for changes",
+          "Keep logins in profiles",
+          "Replay recorded sessions",
+          "Check usage and credits"
+        ],
+        "websiteURL": "https://outcrawl.ai",
+        "supportURL": "https://outcrawl.ai/contact",
+        "privacyPolicyURL": "https://outcrawl.ai/legal/privacy",
+        "termsOfServiceURL": "https://outcrawl.ai/legal/terms",
+        "defaultPrompt": [
+          "Read https://outcrawl.ai/pricing and list the plans with their prices.",
+          "Search for the latest MCP specification changes and summarize them.",
+          "How many credits do I have left this month?"
+        ],
+        "brandColor": "#4B1BF3",
+        "brandColorDark": "#8A6BFF",
+        "composerIcon": "./assets/logo.png",
+        "logo": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/outcrawl/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Read one page",
+              "prompt": "Get https://outcrawl.ai/pricing as markdown and list each plan with its monthly price.",
+              "tools_triggered": "outcrawl_scrape",
+              "expected_behavior": "Scrapes the one URL, returns the plans and prices from the page, and reports the credits the call used."
+            },
+            {
+              "description": "Search with content",
+              "prompt": "Find three recent articles about the Model Context Protocol and summarize each in two lines.",
+              "tools_triggered": "outcrawl_search",
+              "expected_behavior": "Runs one search with the hits read in full, then summarizes three of them with their URLs."
+            },
+            {
+              "description": "Crawl a docs site",
+              "prompt": "Crawl https://outcrawl.ai/docs, at most 20 pages, and list the page titles.",
+              "tools_triggered": "outcrawl_crawl",
+              "expected_behavior": "Starts a crawl bounded to 20 pages under /docs and lists the titles and URLs it returned."
+            },
+            {
+              "description": "Hand a task behind a login to an agent",
+              "prompt": "On https://www.saucedemo.com, sign in with the standard demo user shown on the page and list every product with its price.",
+              "tools_triggered": "outcrawl_agent, outcrawl_agent_status, outcrawl_agent_results",
+              "expected_behavior": "Submits an agent run with caps, checks its status until it settles, then lists the products and prices and gives the replay URL."
+            },
+            {
+              "description": "Check credits",
+              "prompt": "How many Outcrawl credits do I have left, and what did I use this week?",
+              "tools_triggered": "outcrawl_credits, outcrawl_usage",
+              "expected_behavior": "Reports the remaining credit pool and the week's usage grouped by day."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Payments are not made by the plugin",
+              "prompt": "Buy this pair of shoes on the store page with my saved card."
+            },
+            {
+              "description": "Browser settings are not configurable",
+              "prompt": "Change the browser's user agent and fingerprint before scraping."
+            },
+            {
+              "description": "Unrelated request",
+              "prompt": "Write me a poem about autumn."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The plugin does not sell products or take payments in chat. Scrapes, searches, crawls and agent runs spend credits the user already holds on Outcrawl."
+      },
+      "publication": {
+        "release_notes": "30 tools: scrape, crawl, search, browser agent runs (submit, follow, read results, cancel, hand control to a person), page monitors, profiles that keep a login, recorded sessions with network detail, usage, credits and workspace rules."
+      }
+    }
+  }
+}
